@@ -99,8 +99,6 @@ public class GitConfigsActivity extends AppCompatActivity {
 
     private void startSwitch() {
         View progressView = LayoutInflater.from(this).inflate(R.layout.progress_msg_box, null);
-        LinearLayout linear_progress = progressView.findViewById(R.id.layout_progress);
-        linear_progress.setPadding(0,0,0,0);
         TextView progress_text = progressView.findViewById(R.id.tv_progress);
         progress_text.setText("Switching...");
         AlertDialog progressDialog = new MaterialAlertDialogBuilder(this)
@@ -136,8 +134,6 @@ public class GitConfigsActivity extends AppCompatActivity {
         }
 
         View progressView = LayoutInflater.from(this).inflate(R.layout.progress_msg_box, null);
-        LinearLayout linear_progress = progressView.findViewById(R.id.layout_progress);
-        linear_progress.setPadding(0, 0, 0, 0);
         TextView progress_text = progressView.findViewById(R.id.tv_progress);
         progress_text.setText("Trying again...");
         AlertDialog progressDialog = new MaterialAlertDialogBuilder(this)

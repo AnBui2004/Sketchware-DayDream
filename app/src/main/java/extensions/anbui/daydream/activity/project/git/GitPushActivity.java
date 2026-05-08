@@ -143,8 +143,6 @@ public class GitPushActivity extends AppCompatActivity {
         }
 
         View progressView = LayoutInflater.from(this).inflate(R.layout.progress_msg_box, null);
-        LinearLayout linear_progress = progressView.findViewById(R.id.layout_progress);
-        linear_progress.setPadding(0,0,0,0);
         TextView progress_text = progressView.findViewById(R.id.tv_progress);
         progress_text.setText("Pushing...");
         AlertDialog progressDialog = new MaterialAlertDialogBuilder(this)
@@ -183,8 +181,6 @@ public class GitPushActivity extends AppCompatActivity {
 
     private void startPullProject() {
         View progressView = LayoutInflater.from(this).inflate(R.layout.progress_msg_box, null);
-        LinearLayout linear_progress = progressView.findViewById(R.id.layout_progress);
-        linear_progress.setPadding(0,0,0,0);
         TextView progress_text = progressView.findViewById(R.id.tv_progress);
         progress_text.setText("Pulling...");
         AlertDialog progressDialog = new MaterialAlertDialogBuilder(this)

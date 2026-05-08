@@ -124,7 +124,7 @@ public class Lx {
         }
 
         if (isLibraryNotExcluded(BuiltInLibraries.GLIDE, excludedLibraries) && metadata.isGlideUsed) {
-            content.append("implementation 'com.github.bumptech.glide:glide:5.0.5'\r\n");
+            content.append("implementation 'com.github.bumptech.glide:glide:5.0.7'\r\n");
         }
 
         if (isLibraryNotExcluded(BuiltInLibraries.GSON, excludedLibraries) && metadata.isGsonUsed) {

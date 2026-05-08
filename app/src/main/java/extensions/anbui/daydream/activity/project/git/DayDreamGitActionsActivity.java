@@ -168,8 +168,6 @@ public class DayDreamGitActionsActivity extends AppCompatActivity {
         }
 
         View progressView = LayoutInflater.from(this).inflate(R.layout.progress_msg_box, null);
-        LinearLayout linear_progress = progressView.findViewById(R.id.layout_progress);
-        linear_progress.setPadding(0,0,0,0);
         TextView progress_text = progressView.findViewById(R.id.tv_progress);
         progress_text.setText("Cloning...");
         AlertDialog progressDialog = new MaterialAlertDialogBuilder(this)
@@ -226,8 +224,6 @@ public class DayDreamGitActionsActivity extends AppCompatActivity {
 
     private void startPullProject(boolean isApplyAfterPull) {
         View progressView = LayoutInflater.from(this).inflate(R.layout.progress_msg_box, null);
-        LinearLayout linear_progress = progressView.findViewById(R.id.layout_progress);
-        linear_progress.setPadding(0,0,0,0);
         TextView progress_text = progressView.findViewById(R.id.tv_progress);
         progress_text.setText("Pulling...");
         AlertDialog progressDialog = new MaterialAlertDialogBuilder(this)
@@ -294,8 +290,6 @@ public class DayDreamGitActionsActivity extends AppCompatActivity {
 
     private void startApplyProject() {
         View progressView = LayoutInflater.from(this).inflate(R.layout.progress_msg_box, null);
-        LinearLayout linear_progress = progressView.findViewById(R.id.layout_progress);
-        linear_progress.setPadding(0,0,0,0);
         TextView progress_text = progressView.findViewById(R.id.tv_progress);
         progress_text.setText("Applying...");
         AlertDialog progressDialog = new MaterialAlertDialogBuilder(this)
@@ -357,8 +351,6 @@ public class DayDreamGitActionsActivity extends AppCompatActivity {
 
     private void startRemove() {
         View progressView = LayoutInflater.from(this).inflate(R.layout.progress_msg_box, null);
-        LinearLayout linear_progress = progressView.findViewById(R.id.layout_progress);
-        linear_progress.setPadding(0,0,0,0);
         TextView progress_text = progressView.findViewById(R.id.tv_progress);
         progress_text.setText("Removing...");
         AlertDialog progressDialog = new MaterialAlertDialogBuilder(this)
@@ -387,8 +379,6 @@ public class DayDreamGitActionsActivity extends AppCompatActivity {
 
     private void startQuickLook() {
         View progressView = LayoutInflater.from(this).inflate(R.layout.progress_msg_box, null);
-        LinearLayout linear_progress = progressView.findViewById(R.id.layout_progress);
-        linear_progress.setPadding(0,0,0,0);
         TextView progress_text = progressView.findViewById(R.id.tv_progress);
         progress_text.setText("Preparing...");
         AlertDialog progressDialog = new MaterialAlertDialogBuilder(this)

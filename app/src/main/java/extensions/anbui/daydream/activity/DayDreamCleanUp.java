@@ -66,8 +66,6 @@ public class DayDreamCleanUp extends AppCompatActivity {
 
     private void startleanUpLocalLib() {
         View progressView = LayoutInflater.from(this).inflate(R.layout.progress_msg_box, null);
-        LinearLayout linear_progress = progressView.findViewById(R.id.layout_progress);
-        linear_progress.setPadding(0,0,0,0);
         TextView progress_text = progressView.findViewById(R.id.tv_progress);
         progress_text.setText("Cleaning up...");
         AlertDialog progressDialog = new MaterialAlertDialogBuilder(this)
@@ -113,8 +111,6 @@ public class DayDreamCleanUp extends AppCompatActivity {
 
     private void startcleanOutTheRecyclingBin() {
         View progressView = LayoutInflater.from(this).inflate(R.layout.progress_msg_box, null);
-        LinearLayout linear_progress = progressView.findViewById(R.id.layout_progress);
-        linear_progress.setPadding(0,0,0,0);
         TextView progress_text = progressView.findViewById(R.id.tv_progress);
         progress_text.setText("Cleaning up...");
         AlertDialog progressDialog = new MaterialAlertDialogBuilder(this)
@@ -154,8 +150,6 @@ public class DayDreamCleanUp extends AppCompatActivity {
 
     private void startcleanUpTemporaryFiles() {
         View progressView = LayoutInflater.from(this).inflate(R.layout.progress_msg_box, null);
-        LinearLayout linear_progress = progressView.findViewById(R.id.layout_progress);
-        linear_progress.setPadding(0,0,0,0);
         TextView progress_text = progressView.findViewById(R.id.tv_progress);
         progress_text.setText("Cleaning up...");
         AlertDialog progressDialog = new MaterialAlertDialogBuilder(this)

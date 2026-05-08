@@ -51,8 +51,6 @@ object RemoveCore {
 
             val progressView: View =
                 LayoutInflater.from(activity).inflate(R.layout.progress_msg_box, null)
-            val linearProgress = progressView.findViewById<LinearLayout?>(R.id.layout_progress)
-            linearProgress?.setPadding(0, 0, 0, 0)
             val progressText = progressView.findViewById<TextView?>(R.id.tv_progress)
             progressText?.text =
                 if (projectID.equals(Configs.defaultQuickLookProjectID)) "Cleaning up..." else "Removing..."

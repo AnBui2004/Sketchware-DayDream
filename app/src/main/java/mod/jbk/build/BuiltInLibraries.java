@@ -159,11 +159,11 @@ public class BuiltInLibraries {
     public static String FIREBASE_MEASUREMENT_CONNECTOR = "firebase-measurement-connector-19.0.0";
     public static String FIREBASE_MESSAGING = "firebase-messaging-19.0.0";
     public static String FIREBASE_STORAGE = "firebase-storage-19.0.0";
-    public static String GLIDE = "glide-5.0.5";
-    public static String GLIDE_ANNOTATIONS = "glide-annotations-5.0.5";
-    public static String GLIDE_COMPILER = "glide-compiler-5.0.5";
-    public static String GLIDE_DISKLRUCACHE = "glide-disklrucache-5.0.5";
-    public static String GLIDE_GIFDECODER = "glide-gifdecoder-5.0.5";
+    public static String GLIDE = "glide-5.0.7";
+    public static String GLIDE_ANNOTATIONS = "annotations-5.0.7";
+    public static String GLIDE_COMPILER = "compiler-5.0.7";
+    public static String GLIDE_DISKLRUCACHE = "disklrucache-5.0.7";
+    public static String GLIDE_GIFDECODER = "gifdecoder-5.0.7";
     public static String GLIDE_TRASFORMATIONS = "glide-transformations-4.3.0";
     public static String GOOGLE_AUTO_VALUE_ANNOTATIONS = "auto-value-annotations-1.6.5";
     public static String GSON = "gson-2.8.7";

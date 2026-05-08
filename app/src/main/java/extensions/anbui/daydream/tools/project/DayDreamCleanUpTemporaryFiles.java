@@ -29,8 +29,6 @@ public class DayDreamCleanUpTemporaryFiles {
 
     public static void startNow(Activity activity, String projectID) {
         View progressView = LayoutInflater.from(activity).inflate(R.layout.progress_msg_box, null);
-        LinearLayout linear_progress = progressView.findViewById(R.id.layout_progress);
-        linear_progress.setPadding(0,0,0,0);
         TextView progress_text = progressView.findViewById(R.id.tv_progress);
         progress_text.setText("Cleaning up...");
         AlertDialog progressDialog = new MaterialAlertDialogBuilder(activity)
