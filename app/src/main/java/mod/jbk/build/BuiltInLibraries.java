@@ -190,7 +190,7 @@ public class BuiltInLibraries {
 //    public static String KTOR_WEBSOCKETS_JVM = "ktor-websockets-jvm-3.0.1";
 //    public static String KTOR_WEBSOCKETS_SERIALIZATION_JVM = "ktor-websocket-serialization-jvm-3.0.1";
     public static String LOTTIE = "lottie-3.4.0";
-    public static String MATERIAL = "material-1.14.0-alpha10";
+    public static String MATERIAL = "material-1.14.0";
     public static String OKHTTP = "okhttp-4.12.0";
     public static String OKIO = "okio-1.17.6";
     public static String OKIO_JVM = "okio-jvm-3.6.0";
