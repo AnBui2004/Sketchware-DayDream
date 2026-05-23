@@ -150,7 +150,7 @@ dependencies {
 
     //noinspection GradleDependency copied from above dependency for not just runtime access
     android26Implementation "com.google.protobuf:protobuf-java:3.19.2"
-    android33Implementation "com.google.protobuf:protobuf-java:4.34.1"
+    android33Implementation "com.google.protobuf:protobuf-java:4.35.0"
     //noinspection GradleDependency
     android26Implementation("com.android.tools:sdklib:25.3.0") {
         exclude group: "com.intellij", module: "annotations"

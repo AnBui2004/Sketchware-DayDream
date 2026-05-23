@@ -89,15 +89,15 @@ public class BuiltInLibraries {
     public static String ANDROIDX_LOADER = "loader-1.1.0";
     public static String ANDROIDX_LOCALBROADCASTMANAGER = "localbroadcastmanager-1.0.0";
     public static String ANDROIDX_MEDIA = "media-1.2.1";
-    public static String ANDROIDX_MEDIA3_MEDIA3_COMMON = "media3-common-1.8.0";
-    public static String ANDROIDX_MEDIA3_MEDIA3_CONTAINER = "media3-container-1.8.0";
-    public static String ANDROIDX_MEDIA3_MEDIA3_DATABASE = "media3-database-1.8.0";
-    public static String ANDROIDX_MEDIA3_MEDIA3_DATASOURCE = "media3-datasource-1.8.0";
-    public static String ANDROIDX_MEDIA3_MEDIA3_DECODER = "media3-decoder-1.8.0";
-    public static String ANDROIDX_MEDIA3_MEDIA3_EXOPLAYER = "media3-exoplayer-1.8.0";
-    public static String ANDROIDX_MEDIA3_MEDIA3_EXOPLAYER_HLS = "media3-exoplayer-hls-1.8.0";
-    public static String ANDROIDX_MEDIA3_MEDIA3_EXTRACTOR = "media3-extractor-1.8.0";
-    public static String ANDROIDX_MEDIA3_MEDIA3_UI = "media3-ui-1.8.0";
+    public static String ANDROIDX_MEDIA3_MEDIA3_COMMON = "media3-common-1.10.1";
+    public static String ANDROIDX_MEDIA3_MEDIA3_CONTAINER = "media3-container-1.10.1";
+    public static String ANDROIDX_MEDIA3_MEDIA3_DATABASE = "media3-database-1.10.1";
+    public static String ANDROIDX_MEDIA3_MEDIA3_DATASOURCE = "media3-datasource-1.10.1";
+    public static String ANDROIDX_MEDIA3_MEDIA3_DECODER = "media3-decoder-1.10.1";
+    public static String ANDROIDX_MEDIA3_MEDIA3_EXOPLAYER = "media3-exoplayer-1.10.1";
+    public static String ANDROIDX_MEDIA3_MEDIA3_EXOPLAYER_HLS = "media3-exoplayer-hls-1.10.1";
+    public static String ANDROIDX_MEDIA3_MEDIA3_EXTRACTOR = "media3-extractor-1.10.1";
+    public static String ANDROIDX_MEDIA3_MEDIA3_UI = "media3-ui-1.10.1";
     public static String ANDROIDX_MULTIDEX = "multidex-2.0.1";
     public static String ANDROIDX_NAVIGATION_EVENT = "navigationevent-android-1.0.0";
     public static String ANDROIDX_PRINT = "print-1.0.0";
@@ -127,6 +127,7 @@ public class BuiltInLibraries {
     public static String ANDROIDX_WORK_RUNTIME = "work-runtime-2.10.5";
     //ANDROIDX_WORK_RUNTIME_KTX = ANDROIDX_WORK_RUNTIME + JETBRAINS_KOTLIN_STDLIB + ORG_JETBRAINS_KOTLINX_KOTLINX_COROUTINES_ANDROID
     public static String ANIMAL_SNIFFER_ANNOTATIONS = "animal-sniffer-annotations-1.26";
+    public static String CHECKER_QUAL = "checker-qual-4.1.0";
     public static String CIRCLEIMAGEVIEW = "circleimageview-3.1.0";
     public static String CODEVIEW = "CodeView-0.4.0";
     public static String COM_GOOGLE_ANDROID_DATATRANSPORT_TRANSPORT_API = "transport-api-4.0.0";
@@ -167,9 +168,11 @@ public class BuiltInLibraries {
     public static String GLIDE_TRASFORMATIONS = "glide-transformations-4.3.0";
     public static String GOOGLE_AUTO_VALUE_ANNOTATIONS = "auto-value-annotations-1.6.5";
     public static String GSON = "gson-2.8.7";
-    public static String GUAVA = "guava-33.1.0-android";
-    public static String GUAVA_LISTENABLEFUTURE = "listenablefuture-1.0.0";
+    public static String GUAVA = "guava-33.3.1-android";
+    public static String GUAVA_FAILUREACCESS = "failureaccess-1.0.3";
+    public static String GUAVA_LISTENABLEFUTURE = "listenablefuture-9999.0-empty-to-avoid-conflict-with-guava";
     public static String HTTP_LEGACY_ANDROID = "http-legacy-android-28";
+    public static String J2OBJC_ANNOTATIONS = "j2objc-annotations-3.1";
     public static String JAKARTA_INJECT_JAKARTA_INJECT_API = "jakarta.inject-api-2.0.1";
     public static String JETBRAINS_ANNOTATIONS = "org-jetbrains-annotations-23.0.0";
     public static String JUNIT_JUNIT = "junit-4.13.2";
@@ -249,7 +252,9 @@ public class BuiltInLibraries {
     public static final BuiltInLibrary[] KNOWN_BUILT_IN_LIBRARIES = {
 
             //==========Guava==========
-            new BuiltInLibrary(GUAVA, List.of(COM_GOOGLE_ERRORPRONE_ERROR_PRONE_ANNOTATIONS)),
+            new BuiltInLibrary(GUAVA, List.of(SPOTBUGS_ANNOTATIONS, GUAVA_FAILUREACCESS,
+                    COM_GOOGLE_ERRORPRONE_ERROR_PRONE_ANNOTATIONS, J2OBJC_ANNOTATIONS, CHECKER_QUAL)),
+            new BuiltInLibrary(GUAVA_FAILUREACCESS),
             new BuiltInLibrary(GUAVA_LISTENABLEFUTURE),
             //==========Guava==========
 
@@ -746,6 +751,7 @@ public class BuiltInLibraries {
             new BuiltInLibrary(ANDROIDX_COMPOSE_RUNTIME_ANNOTATION, List.of(JETBRAINS_KOTLIN_STDLIB)),
             new BuiltInLibrary(GOOGLE_AUTO_VALUE_ANNOTATIONS), //Automatically generate equals(), toString(),... code
             new BuiltInLibrary(JAKARTA_INJECT_JAKARTA_INJECT_API), //Annotations @Inject, @Qualifier,...
+            new BuiltInLibrary(J2OBJC_ANNOTATIONS),
             //==========Annotations==========
 
             //==========Test==========
@@ -755,6 +761,7 @@ public class BuiltInLibraries {
             new BuiltInLibrary(JUNIT_JUNIT, List.of(ORG_HAMCREAST_HAMCREAST_CORE)),
             new BuiltInLibrary(ORG_HAMCREAST_HAMCREAST_CORE),
             new BuiltInLibrary(SPOTBUGS_ANNOTATIONS),
+            new BuiltInLibrary(CHECKER_QUAL),
 //            new BuiltInLibrary(SLF4J_API),
             //==========Test==========
 
