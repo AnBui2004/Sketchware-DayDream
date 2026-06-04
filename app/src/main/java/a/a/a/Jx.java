@@ -410,16 +410,27 @@ public class Jx {
             if (!buildConfig.isFirebaseEnabled) {
                 sb.append(EOL);
             }
-            sb.append("MobileAds.initialize(this);");
-            sb.append(EOL);
-            if (fieldsWithStaticInitializers.contains(Lx.getComponentFieldCode("InterstitialAd"))) {
-                sb.append("_ad_unit_id = \"").append(buildConfig.isDebugBuild ? "ca-app-pub-3940256099942544/1033173712" : buildConfig.interstitialAdUnitId).append("\";");
-            }
-            if (fieldsWithStaticInitializers.contains(Lx.getComponentFieldCode("RewardedVideoAd"))) {
-                sb.append("_reward_ad_unit_id = \"").append(buildConfig.isDebugBuild ? "ca-app-pub-3940256099942544/5224354917" : buildConfig.rewardAdUnitId).append("\";");
+            
+            boolean initializeMobileAds = false;
+
+            if (DayDreamProjectSettings.getImproveAdMobPerformance(sc_id)) {
+                if (DRProjectView.isActivityLauncher(sc_id, projectFileBean.fileName)) {
+                    sb.append("// We recommend you do this in the Application instead here if you know how.");
+                    sb.append(EOL);
+                    sb.append("MobileAds.initialize(getApplicationContext());");
+                    
+                    initializeMobileAds = true;
+                }
+            } else {
+                sb.append("// It is causing a noticeable decrease in performance! We recommend you do this in the Application instead here if you know how.");
+                sb.append("MobileAds.initialize(this);");
+
+                initializeMobileAds = true;
             }
 
-            if (buildConfig.isDebugBuild) {
+            sb.append(EOL);
+
+            if (buildConfig.isDebugBuild && initializeMobileAds) {
                 StringBuilder testDevicesListCode = new StringBuilder("List<String> testDeviceIds = Arrays.asList(");
                 ArrayList<String> testDevices = buildConfig.t;
                 for (int j = 0, testDevicesSize = testDevices.size(); j < testDevicesSize; j++) {
@@ -435,6 +446,15 @@ public class Jx {
                 sb.append(EOL);
                 sb.append(testDevicesListCode);
                 sb.append("MobileAds.setRequestConfiguration(new RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build());");
+
+                sb.append(EOL);
+            }
+
+            if (fieldsWithStaticInitializers.contains(Lx.getComponentFieldCode("InterstitialAd"))) {
+                sb.append("_ad_unit_id = \"").append(buildConfig.isDebugBuild ? "ca-app-pub-3940256099942544/1033173712" : buildConfig.interstitialAdUnitId).append("\";");
+            }
+            if (fieldsWithStaticInitializers.contains(Lx.getComponentFieldCode("RewardedVideoAd"))) {
+                sb.append("_reward_ad_unit_id = \"").append(buildConfig.isDebugBuild ? "ca-app-pub-3940256099942544/5224354917" : buildConfig.rewardAdUnitId).append("\";");
             }
 
             sb.append(EOL);
@@ -543,9 +563,7 @@ public class Jx {
                     if (DRFeatureManager.isGoogleAnalyticsEnabled(sc_id)) {
                         sb.append("FirebaseAnalytics.getInstance(getApplicationContext());").append(EOL);
                     }
-                }
 
-                if (DRProjectView.isActivityLauncher(sc_id, projectFileBean.fileName)) {
                     if (DRFeatureManager.isOneSignalEnabled(sc_id, projectFileBean.fileName)) {
                         if (!DRProjectTracker.isBuildForRelease()) {
                             sb.append("// Enable verbose logging for debugging (remove in production)").append(EOL);

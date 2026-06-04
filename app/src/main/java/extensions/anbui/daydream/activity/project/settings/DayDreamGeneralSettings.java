@@ -63,6 +63,7 @@ public class DayDreamGeneralSettings extends AppCompatActivity {
         binding.lnPermissionsettings.setOnClickListener(v -> goToSettings(PermissionSettings.class));
         binding.lnGooglesettings.setOnClickListener(v -> goToSettings(GoogleSettings.class));
         binding.lnBackup.setOnClickListener(v -> goToSettings(DayDreamBackupTool.class));
+        binding.lnLayoutperformance.setOnClickListener(v -> goToSettings(PerformanceSettingsActivity.class));
         binding.lnLayoutsettings.setOnClickListener(v -> goToSettings(LayoutSettings.class));
 
         if (LibraryUtils.isAllowUseTheme(projectID)) {

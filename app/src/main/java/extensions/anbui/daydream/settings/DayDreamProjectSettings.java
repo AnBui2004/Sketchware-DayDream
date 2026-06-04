@@ -397,6 +397,16 @@ public class DayDreamProjectSettings {
         setUniversalSettings(projectID, "advancedPadding", value);
     }
 
+    public static boolean getImproveAdMobPerformance(String projectID) {
+        Log.i(TAG, "getImproveAdMobPerformance: " + projectID);
+        return getUniversalSettings(projectID, "improveAdMobPerformance");
+    }
+
+    public static void setImproveAdMobPerformance(String projectID, boolean value) {
+        Log.i(TAG, "setImproveAdMobPerformance: " + projectID + " " + value);
+        setUniversalSettings(projectID, "improveAdMobPerformance", value);
+    }
+
     //Read and write universal settings
     public static boolean getUniversalSettings(String projectID, String settingName) {
         Log.i(TAG, "getUniversalSettings: " + projectID + " " + settingName);
