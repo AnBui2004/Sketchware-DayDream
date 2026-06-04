@@ -423,6 +423,7 @@ public class Jx {
                 }
             } else {
                 sb.append("// It is causing a noticeable decrease in performance! We recommend you do this in the Application instead here if you know how.");
+                sb.append(EOL);
                 sb.append("MobileAds.initialize(this);");
 
                 initializeMobileAds = true;
