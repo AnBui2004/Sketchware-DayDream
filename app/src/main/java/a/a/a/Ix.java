@@ -631,40 +631,46 @@ public class Ix {
             activityTag.addAttribute("android", "theme", "@style/AppTheme.DebugActivity");
             applicationTag.addChildNode(activityTag);
         }
-        if (c.isAdMobEnabled) {
-            XmlBuilder activityTag = new XmlBuilder("activity");
-            activityTag.addAttribute("android", "name", "com.google.android.gms.ads.AdActivity");
-            activityTag.addAttribute("android", "configChanges", "keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize");
-            activityTag.addAttribute("android", "exported", "false");
-            activityTag.addAttribute("android", "theme", "@android:style/Theme.Translucent");
-            applicationTag.addChildNode(activityTag);
 
-            XmlBuilder initProvider = new XmlBuilder("provider");
-            initProvider.addAttribute("android", "name", "com.google.android.gms.ads.MobileAdsInitProvider");
-            initProvider.addAttribute("android", "authorities", c.packageName + ".mobileadsinitprovider");
-            initProvider.addAttribute("android", "exported", "false");
-            initProvider.addAttribute("android", "initOrder", "100");
-            applicationTag.addChildNode(initProvider);
+        if (!DRProjectTracker.isExportForAndroidStudio()) {
+            if (c.isAdMobEnabled) {
+                XmlBuilder activityTag = new XmlBuilder("activity");
+                activityTag.addAttribute("android", "name", "com.google.android.gms.ads.AdActivity");
+                activityTag.addAttribute("android", "configChanges", "keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize");
+                activityTag.addAttribute("android", "exported", "false");
+                activityTag.addAttribute("android", "theme", "@android:style/Theme.Translucent");
+                applicationTag.addChildNode(activityTag);
 
-            XmlBuilder adService = new XmlBuilder("service");
-            adService.addAttribute("android", "name", "com.google.android.gms.ads.AdService");
-            adService.addAttribute("android", "enabled", "true");
-            adService.addAttribute("android", "exported", "false");
-            applicationTag.addChildNode(adService);
+                XmlBuilder initProvider = new XmlBuilder("provider");
+                initProvider.addAttribute("android", "name", "com.google.android.gms.ads.MobileAdsInitProvider");
+                initProvider.addAttribute("android", "authorities", c.packageName + ".mobileadsinitprovider");
+                initProvider.addAttribute("android", "exported", "false");
+                initProvider.addAttribute("android", "initOrder", "100");
+                applicationTag.addChildNode(initProvider);
 
-            XmlBuilder testingActivity = new XmlBuilder("activity");
-            testingActivity.addAttribute("android", "name", "com.google.android.gms.ads.OutOfContextTestingActivity");
-            testingActivity.addAttribute("android", "configChanges", "keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize");
-            testingActivity.addAttribute("android", "exported", "false");
-            applicationTag.addChildNode(testingActivity);
+                XmlBuilder adService = new XmlBuilder("service");
+                adService.addAttribute("android", "name", "com.google.android.gms.ads.AdService");
+                adService.addAttribute("android", "enabled", "true");
+                adService.addAttribute("android", "exported", "false");
+                applicationTag.addChildNode(adService);
+
+                XmlBuilder testingActivity = new XmlBuilder("activity");
+                testingActivity.addAttribute("android", "name", "com.google.android.gms.ads.OutOfContextTestingActivity");
+                testingActivity.addAttribute("android", "configChanges", "keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize");
+                testingActivity.addAttribute("android", "exported", "false");
+                applicationTag.addChildNode(testingActivity);
+            }
+
+            if (builtInLibraryManager.containsLibrary(BuiltInLibraries.ANDROIDX_ROOM_RUNTIME)) {
+                writeAndroidxRoomService(applicationTag);
+            }
+
+            writeAndroidxStartupInitializationProvider(applicationTag);
+            if (builtInLibraryManager.containsLibrary(BuiltInLibraries.ANDROIDX_WORK_RUNTIME)) {
+                writeAndroidxWorkRuntimeTags(applicationTag);
+            }
         }
-        if (builtInLibraryManager.containsLibrary(BuiltInLibraries.ANDROIDX_ROOM_RUNTIME)) {
-            writeAndroidxRoomService(applicationTag);
-        }
-        writeAndroidxStartupInitializationProvider(applicationTag);
-        if (builtInLibraryManager.containsLibrary(BuiltInLibraries.ANDROIDX_WORK_RUNTIME)) {
-            writeAndroidxWorkRuntimeTags(applicationTag);
-        }
+
         if (c.isFirebaseEnabled || c.isAdMobEnabled || c.isMapUsed) {
             writeGMSVersion(applicationTag);
         }

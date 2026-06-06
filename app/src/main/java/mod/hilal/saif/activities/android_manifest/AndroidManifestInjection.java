@@ -212,13 +212,16 @@ public class AndroidManifestInjection extends BaseAppCompatActivity {
 
             data.add(_item);
         }
-        {
-            HashMap<String, Object> _item = new HashMap<>();
-            _item.put("name", componentName);
-            _item.put("value", "android:hardwareAccelerated=\"true\"");
 
-            data.add(_item);
-        }
+//        It's not necessary because Android 4.0+ already has it enabled by default.
+//        {
+//            HashMap<String, Object> _item = new HashMap<>();
+//            _item.put("name", componentName);
+//            _item.put("value", "android:hardwareAccelerated=\"true\"");
+//
+//            data.add(_item);
+//        }
+
         {
             HashMap<String, Object> _item = new HashMap<>();
             _item.put("name", componentName);
