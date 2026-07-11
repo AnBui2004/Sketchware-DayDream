@@ -903,10 +903,10 @@ public class Fx {
                 opcode = String.format("%s.vibrate((long)(%s));", params.get(0), params.get(1));
                 break;
             case "timerAfter":
-                opcode = DRJavaCodeGenerator.timerDelay(params.get(0), (bean.subStack1 >= 0) ? a(String.valueOf(bean.subStack1), "") : "", params.get(1));
+                opcode = DRJavaCodeGenerator.timerDelay(isActivity, params.get(0), (bean.subStack1 >= 0) ? a(String.valueOf(bean.subStack1), "") : "", params.get(1));
                 break;
             case "timerEvery":
-                opcode = DRJavaCodeGenerator.timerRepeatEvery(params.get(0), (bean.subStack1 >= 0) ? a(String.valueOf(bean.subStack1), "") : "", params.get(1), params.get(2));
+                opcode = DRJavaCodeGenerator.timerRepeatEvery(isActivity, params.get(0), (bean.subStack1 >= 0) ? a(String.valueOf(bean.subStack1), "") : "", params.get(1), params.get(2));
                 break;
             case "timerCancel":
                 opcode = DRJavaCodeGenerator.timerCancel(params.get(0));

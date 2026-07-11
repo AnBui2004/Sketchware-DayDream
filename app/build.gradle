@@ -150,7 +150,7 @@ dependencies {
 
     //noinspection GradleDependency copied from above dependency for not just runtime access
     android26Implementation "com.google.protobuf:protobuf-java:3.19.2"
-    android33Implementation "com.google.protobuf:protobuf-java:4.35.0"
+    android33Implementation "com.google.protobuf:protobuf-java:4.35.1"
     //noinspection GradleDependency
     android26Implementation("com.android.tools:sdklib:25.3.0") {
         exclude group: "com.intellij", module: "annotations"
@@ -162,12 +162,12 @@ dependencies {
     android33Implementation "com.android.tools:r8:8.13.17"
     implementation "com.github.Iyxan23:zipalign-java:1.2.2"
 
-    implementation "com.google.code.gson:gson:2.13.2"
+    implementation "com.google.code.gson:gson:2.14.0"
     implementation "com.madgag:scpkix-jdk15on:1.47.0.3"
 
     implementation 'io.noties.markwon:core:4.6.2'
 
-    implementation "com.squareup.okhttp3:okhttp:5.3.2"
+    implementation "com.squareup.okhttp3:okhttp:5.4.0"
     implementation "com.squareup.okio:okio:3.17.0"
 
     android26Implementation "org.eclipse.jdt:ecj:3.26.0"
@@ -198,7 +198,7 @@ dependencies {
     if (analyticsEnabled) {
         new File("$projectDir/google-services.json").text = secrets
     }
-    implementation platform("com.google.firebase:firebase-bom:34.14.0")
+    implementation platform("com.google.firebase:firebase-bom:34.16.0")
     implementation "com.google.firebase:firebase-crashlytics"
     implementation "com.google.firebase:firebase-analytics"
     implementation "com.google.firebase:firebase-messaging"

@@ -59,7 +59,7 @@ object DRJavaCodeGenerator {
      * Timer
      */
     @JvmStatic
-    fun timerDelay(componentName: String, logic: String, delay: String): String {
+    fun timerDelay(isActivity: Boolean, componentName: String, logic: String, delay: String): String {
         if (logic.isEmpty()) {
             return ""
         }
@@ -69,6 +69,7 @@ object DRJavaCodeGenerator {
         } else {
             "$componentName = new TimerTask() {\r\n@Override\r\npublic void run() {\r\n${
                 runOnUiThread(
+                    isActivity,
                     logic
                 )
             }\r\n}\r\n};\r\n_timer.schedule($componentName, " +
@@ -83,6 +84,7 @@ object DRJavaCodeGenerator {
 
     @JvmStatic
     fun timerRepeatEvery(
+        isActivity: Boolean,
         componentName: String,
         logic: String,
         delay: String,
@@ -94,6 +96,7 @@ object DRJavaCodeGenerator {
 
         return "$componentName = new TimerTask() {\r\n@Override\r\npublic void run() {\r\n${
             runOnUiThread(
+                isActivity,
                 logic
             )
         }\r\n}\r\n};\r\n_timer.scheduleAtFixedRate($componentName, " +
@@ -362,15 +365,15 @@ object DRJavaCodeGenerator {
      * runOnUiThread
      */
     @JvmStatic
-    fun runOnUiThread(logic: String): String {
+    fun runOnUiThread(isActivity: Boolean, logic: String): String {
         return if (isUseLambda(Configs.currentProjectID)) {
             if (isUseSingleLineLambda(logic)) {
-                "runOnUiThread(() -> ${logic.dropLast(1)});"
+                (if (isActivity) "" else "if (!isAdded()) return;\r\nrequireActivity().") + "runOnUiThread(() -> ${logic.dropLast(1)});"
             } else {
-                "runOnUiThread(() -> {\r\n$logic\r\n});"
+                (if (isActivity) "" else "if (!isAdded()) return;\r\nrequireActivity().") + "runOnUiThread(() -> {\r\n$logic\r\n});"
             }
         } else {
-            "runOnUiThread(new Runnable() {\r\n@Override\r\npublic void run() {\r\n$logic\r\n}\r\n});"
+            (if (isActivity) "" else "if (!isAdded()) return;\r\nrequireActivity().") + "runOnUiThread(new Runnable() {\r\n@Override\r\npublic void run() {\r\n$logic\r\n}\r\n});"
         }
     }
 
