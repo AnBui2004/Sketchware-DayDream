@@ -68,12 +68,30 @@ object DRBlockHandler {
     @JvmStatic
     fun addSharedPreferencesBlocks(arrayList: ArrayList<HashMap<String, Any>>) {
         var hashMap: HashMap<String, Any> = HashMap()
-        hashMap["name"] = "getBooleanSharedPreferences"
-        hashMap["type"] = "b"
-        hashMap["code"] = "%s.getBoolean(%s, false)"
+        hashMap["name"] = "getStringSharedPreferences"
+        hashMap["type"] = "s"
+        hashMap["code"] = "%s.getString(%s, %s)"
         hashMap["color"] = "#2CA5E2"
         hashMap["palette"] = "-1"
-        hashMap["spec"] = "%m.file getBoolean key %s"
+        hashMap["spec"] = "%m.file getString key %s defaultValue %s"
+        arrayList.add(hashMap)
+
+        hashMap = HashMap()
+        hashMap["name"] = "putStringSharedPreferences"
+        hashMap["type"] = " "
+        hashMap["code"] = "%s.edit().putString(%s, %s).apply();"
+        hashMap["color"] = "#2CA5E2"
+        hashMap["palette"] = "-1"
+        hashMap["spec"] = "%m.file putString key %s value %s"
+        arrayList.add(hashMap)
+
+        hashMap = HashMap()
+        hashMap["name"] = "getBooleanSharedPreferences"
+        hashMap["type"] = "b"
+        hashMap["code"] = "%s.getBoolean(%s, %s)"
+        hashMap["color"] = "#2CA5E2"
+        hashMap["palette"] = "-1"
+        hashMap["spec"] = "%m.file getBoolean key %s defaultValue %b"
         arrayList.add(hashMap)
 
         hashMap = HashMap()
@@ -88,10 +106,10 @@ object DRBlockHandler {
         hashMap = HashMap()
         hashMap["name"] = "getIntSharedPreferences"
         hashMap["type"] = "d"
-        hashMap["code"] = "%s.getInt(%s, 0)"
+        hashMap["code"] = "%s.getInt(%s, %s)"
         hashMap["color"] = "#2CA5E2"
         hashMap["palette"] = "-1"
-        hashMap["spec"] = "%m.file getInt key %s"
+        hashMap["spec"] = "%m.file getInt key %s defaultValue %d"
         arrayList.add(hashMap)
 
         hashMap = HashMap()

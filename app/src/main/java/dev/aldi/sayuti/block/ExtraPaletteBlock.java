@@ -978,8 +978,8 @@ public class ExtraPaletteBlock {
                 if (extraBlocks.isComponentUsed(ComponentBean.COMPONENT_TYPE_SHAREDPREF)) {
                     logicEditor.a("SharedPreferences", getTitleBgColor());
                     logicEditor.a("b", "fileContainsData");
-                    logicEditor.a("s", "fileGetData");
-                    logicEditor.a(" ", "fileSetData");
+//                    logicEditor.a("s", "fileGetData");
+//                    logicEditor.a(" ", "fileSetData");
                     DRPaletteBlock.addSharedPreferencesBlocks(logicEditor);
                     logicEditor.a(" ", "fileRemoveData");
                 }

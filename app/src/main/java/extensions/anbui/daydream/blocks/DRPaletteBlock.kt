@@ -22,6 +22,8 @@ object DRPaletteBlock {
 
     @JvmStatic
     fun addSharedPreferencesBlocks(logicEditor : LogicEditorActivity) {
+        logicEditor.a("s", "getStringSharedPreferences")
+        logicEditor.a(" ", "putStringSharedPreferences")
         logicEditor.a("b", "getBooleanSharedPreferences")
         logicEditor.a(" ", "putBooleanSharedPreferences")
         logicEditor.a("d", "getIntSharedPreferences")
