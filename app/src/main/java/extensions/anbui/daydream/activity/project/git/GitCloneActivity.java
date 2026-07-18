@@ -18,6 +18,7 @@ import java.io.File;
 import java.util.Objects;
 
 import extensions.anbui.daydream.configs.Configs;
+import extensions.anbui.daydream.tools.ToolCore;
 import extensions.anbui.daydream.ui.DialogUtils;
 import extensions.anbui.daydream.file.FileUtils;
 import extensions.anbui.daydream.git.DayDreamGitConfigs;
@@ -60,6 +61,7 @@ public class GitCloneActivity extends AppCompatActivity {
     }
 
     private void startCloneProject() {
+        projectID = String.valueOf(ToolCore.getLastID() + 1);
 
         if (Objects.requireNonNull(binding.etRurl.getText()).toString().isEmpty()) {
             DialogUtils.oneDialog(this,
